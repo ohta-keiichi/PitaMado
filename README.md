@@ -16,6 +16,8 @@ PitaMado is a lightweight macOS menu-bar window manager for keyboard-and-mouse w
 
 The current screen is split into a left third and a right two-thirds:
 
+![PitaMado favorite layout: Chrome on the left, Finder above Terminal on the right](docs/images/favorite-layout.png)
+
 - Chrome-family browser: left third, full height
 - Finder: upper-right half; two Finder windows use 20% and 46% of the full screen width (approximately 30:70 within the right side)
 - Terminal: lower-right half; two terminal windows split evenly
