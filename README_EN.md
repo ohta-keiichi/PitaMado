@@ -15,7 +15,7 @@ It is a lightweight menu-bar app with no Dock icon. PitaMado moves and resizes o
 - Move the frontmost window to the left half, right half, center, or maximum size.
 - Tile visible windows on the current screen.
 - Put terminal applications below other windows.
-- Apply a favorite layout for Chrome-family browsers, Finder, and terminal applications.
+- Apply a favorite layout for Chrome-family browsers or Visual Studio Code, Finder, and terminal applications.
 - Avoid moving windows from another macOS Space, and never create missing windows for a favorite layout.
 
 ### Favorite layout
@@ -24,11 +24,11 @@ The current screen is split into a left third and a right two-thirds:
 
 ![PitaMado favorite layout: Chrome on the left, Finder above Terminal on the right](docs/images/favorite-layout.png)
 
-- Chrome-family browser: left third, full height
+- Chrome-family browser: left third, full height; Visual Studio Code is used when no Chrome-family browser is visible
 - Finder: upper-right half; two Finder windows use 20% and 46% of the full screen width (approximately 30:70 within the right side)
 - Terminal: lower-right half; two terminal windows split evenly
 
-PitaMado recognizes Google Chrome, Edge, Brave, Vivaldi, and Arc as Chrome-family browsers. Terminal, iTerm2, Warp, Ghostty, Hyper, and WezTerm are recognized as terminal applications.
+PitaMado gives the left side to Google Chrome, Edge, Brave, Vivaldi, or Arc. When none is visible, it uses Visual Studio Code instead. Terminal, iTerm2, Warp, Ghostty, Hyper, and WezTerm are recognized as terminal applications.
 
 ## Requirements
 

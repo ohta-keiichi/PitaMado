@@ -15,7 +15,7 @@ Dockには表示されない軽量なメニューバーアプリで、macOSの�
 - 前面のウインドウを左半分、右半分、中央、最大化へ配置
 - 現在の画面で表示中のウインドウを整列
 - ターミナル系アプリを他のウインドウの下に配置
-- Chrome系ブラウザ、Finder、ターミナル用の「お気に入り配置」
+- Chrome系ブラウザまたはVisual Studio Code、Finder、ターミナル用の「お気に入り配置」
 - 別のmacOSデスクトップ（Space）のウインドウは動かさず、お気に入り配置で不足したウインドウも新規作成しない
 
 ### お気に入り配置
@@ -24,11 +24,11 @@ Dockには表示されない軽量なメニューバーアプリで、macOSの�
 
 ![PitaMadoのお気に入り配置: 左にChrome、右上にFinder、右下にTerminal](docs/images/favorite-layout.png)
 
-- Chrome系ブラウザ: 左1/3、縦いっぱい
+- Chrome系ブラウザを左1/3、縦いっぱい（Chrome系がない場合はVisual Studio Code）
 - Finder: 右上。Finderを2枚表示する場合、画面全体の幅に対して左20%・右46%（右側2/3の中では約30:70）
 - ターミナル: 右下。ターミナルを2枚表示する場合、均等に2分割
 
-Chrome系としてGoogle Chrome、Edge、Brave、Vivaldi、Arcを、ターミナル系としてTerminal、iTerm2、Warp、Ghostty、Hyper、WezTermを認識します。
+左側はGoogle Chrome、Edge、Brave、Vivaldi、Arcを優先して配置します。これらが表示されていない場合はVisual Studio Codeを配置します。ターミナル系としてTerminal、iTerm2、Warp、Ghostty、Hyper、WezTermを認識します。
 
 ## 必要環境
 

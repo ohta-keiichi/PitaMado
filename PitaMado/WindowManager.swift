@@ -62,6 +62,7 @@ final class WindowManager {
         "company.thebrowser.Browser"
     ]
     private lazy var chromeBundleIdentifiers = Set(chromeBundleIdentifierCandidates)
+    private let visualStudioCodeBundleIdentifier = "com.microsoft.VSCode"
     private let finderBundleIdentifier = "com.apple.finder"
     private let favoriteChromeWindowCount = 1
     private let favoriteFinderWindowCount = 2
@@ -185,9 +186,12 @@ final class WindowManager {
         }
 
         let chromeWindows = Array(windows.filter(isChromeWindow).prefix(favoriteChromeWindowCount))
+        let visualStudioCodeWindows = chromeWindows.isEmpty
+            ? Array(windows.filter(isVisualStudioCodeWindow).prefix(favoriteChromeWindowCount))
+            : []
         let finderWindows = Array(windows.filter(isFinderWindow).prefix(favoriteFinderWindowCount))
         let terminalWindows = Array(windows.filter(isTerminalWindow).prefix(favoriteTerminalWindowCount))
-        let arrangedWindowKeys = Set((chromeWindows + finderWindows + terminalWindows).map { windowKey(for: $0.element) })
+        let arrangedWindowKeys = Set((chromeWindows + visualStudioCodeWindows + finderWindows + terminalWindows).map { windowKey(for: $0.element) })
 
         guard !arrangedWindowKeys.isEmpty else {
             throw WindowManagerError.visibleWindowsNotFound
@@ -220,6 +224,7 @@ final class WindowManager {
         )
 
         tileFixed(chromeWindows, in: [leftFrame])
+        tileFixed(visualStudioCodeWindows, in: [leftFrame])
         // Finder uses 20% and 46% of the full screen width (the right two-thirds).
         tileFixed(finderWindows, in: splitFrame(finderFrame, widthRatios: [0.20, 0.46]))
         tileFixed(terminalWindows, in: splitFrame(terminalFrame, widthRatios: [0.5, 0.5]))
@@ -368,6 +373,14 @@ final class WindowManager {
             || appName.contains("brave")
             || appName.contains("vivaldi")
             || appName == "arc"
+    }
+
+    private func isVisualStudioCodeWindow(_ window: ManagedWindow) -> Bool {
+        if window.bundleIdentifier == visualStudioCodeBundleIdentifier {
+            return true
+        }
+
+        return window.appName?.lowercased() == "visual studio code"
     }
 
     private func isFinderWindow(_ window: ManagedWindow) -> Bool {

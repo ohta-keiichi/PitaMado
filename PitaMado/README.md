@@ -2,7 +2,7 @@
 
 PitaMado is a minimal personal macOS menu bar app for moving the frontmost window.
 
-The app can also tile all visible normal windows on the main screen. For example, if 10 windows are open, it lays them out as 5 windows on the top row and 5 windows on the bottom row. It also has grouped layouts for terminal apps and a favorite layout for Chrome, Finder, and terminal windows.
+The app can also tile all visible normal windows on the main screen. For example, if 10 windows are open, it lays them out as 5 windows on the top row and 5 windows on the bottom row. It also has grouped layouts for terminal apps and a favorite layout for Chrome-family browsers or Visual Studio Code, Finder, and terminal windows.
 
 ## 1. Xcodeプロジェクトの作り方
 
@@ -104,7 +104,7 @@ sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 
 ターミナル系アプリを下部、それ以外を上部に分けたい場合は `ターミナル下・他上` を選びます。Apple Terminal、iTerm2、Warp、Ghostty、Hyper、WezTerm はターミナル扱いにしています。
 
-定番配置にしたい場合は `お気に入り配置` を選びます。Chrome系ブラウザは左 1/3、Finderは右上、ターミナル系アプリは右下に配置します。同じ種類が複数ある場合は、その枠内で均等に並べます。足りないウインドウは自動で開かず、現在表示中の対象ウインドウだけを配置します。
+定番配置にしたい場合は `お気に入り配置` を選びます。Chrome系ブラウザは左 1/3、Finderは右上、ターミナル系アプリは右下に配置します。Chrome系ブラウザが表示されていない場合は、Visual Studio Codeを左 1/3に配置します。同じ種類が複数ある場合は、その枠内で均等に並べます。足りないウインドウは自動で開かず、現在表示中の対象ウインドウだけを配置します。
 
 ## 8. うまく動かない場合の確認ポイント
 
