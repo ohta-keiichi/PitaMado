@@ -2,7 +2,11 @@
 
 [日本語 README](README.md)
 
-PitaMado is a lightweight macOS menu-bar window manager for keyboard-and-mouse workflows. It moves and resizes ordinary application windows through the macOS Accessibility API, without adding a Dock icon.
+PitaMado helps you set up a practical macOS workspace in one click: research in a browser, give instructions to AI or work in code through a terminal, and check files or images in Finder.
+
+It arranges the browser, Finder, terminal, and other windows you need into useful positions and sizes, so you spend less time switching screens or resizing windows by hand.
+
+It is a lightweight menu-bar app with no Dock icon. PitaMado moves and resizes ordinary application windows through the macOS Accessibility API.
 
 > This is an early-stage personal project. It is useful for local workflows, but is not a notarized or sandboxed distribution.
 
