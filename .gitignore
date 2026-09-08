@@ -2,5 +2,9 @@
 build/
 .claude/
 DerivedData/
+.build/
+.swiftpm/
 xcuserdata/
+*.xcuserdatad/
+*.xcscmblueprint
 *.xcuserstate
