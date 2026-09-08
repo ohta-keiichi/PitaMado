@@ -1,36 +1,38 @@
 # PitaMado
 
-PitaMado is a lightweight macOS menu-bar window manager for keyboard-and-mouse workflows. It moves and resizes ordinary application windows through the macOS Accessibility API, without adding a Dock icon.
+[English README](README_EN.md)
 
-> This is an early-stage personal project. It is useful for local workflows, but is not a notarized or sandboxed distribution.
+PitaMado は、キーボードとマウスでの作業を整える、軽量なmacOSメニューバー型ウインドウマネージャーです。Dockには表示せず、macOSのアクセシビリティAPIを使って通常のアプリウインドウを移動・リサイズします。
 
-## Features
+> 初期段階の個人プロジェクトです。ローカル作業用として利用できますが、現時点では公証済み・Sandbox対応の配布版ではありません。
 
-- Move the frontmost window to the left half, right half, center, or maximum size.
-- Tile visible windows on the current screen.
-- Put terminal applications below other windows.
-- Apply a favorite layout for Chrome-family browsers, Finder, and terminal applications.
-- Avoid moving windows from another macOS Space, and never create missing windows for a favorite layout.
+## 主な機能
 
-### Favorite layout
+- 前面のウインドウを左半分、右半分、中央、最大化へ配置
+- 現在の画面で表示中のウインドウを整列
+- ターミナル系アプリを他のウインドウの下に配置
+- Chrome系ブラウザ、Finder、ターミナル用の「お気に入り配置」
+- 別のmacOSデスクトップ（Space）のウインドウは動かさず、お気に入り配置で不足したウインドウも新規作成しない
 
-The current screen is split into a left third and a right two-thirds:
+### お気に入り配置
 
-![PitaMado favorite layout: Chrome on the left, Finder above Terminal on the right](docs/images/favorite-layout.png)
+画面を左1/3と右2/3に分けます。
 
-- Chrome-family browser: left third, full height
-- Finder: upper-right half; two Finder windows use 20% and 46% of the full screen width (approximately 30:70 within the right side)
-- Terminal: lower-right half; two terminal windows split evenly
+![PitaMadoのお気に入り配置: 左にChrome、右上にFinder、右下にTerminal](docs/images/favorite-layout.png)
 
-PitaMado recognizes Google Chrome, Edge, Brave, Vivaldi, and Arc as Chrome-family browsers. Terminal, iTerm2, Warp, Ghostty, Hyper, and WezTerm are recognized as terminal applications.
+- Chrome系ブラウザ: 左1/3、縦いっぱい
+- Finder: 右上。Finderを2枚表示する場合、画面全体の幅に対して左20%・右46%（右側2/3の中では約30:70）
+- ターミナル: 右下。ターミナルを2枚表示する場合、均等に2分割
 
-## Requirements
+Chrome系としてGoogle Chrome、Edge、Brave、Vivaldi、Arcを、ターミナル系としてTerminal、iTerm2、Warp、Ghostty、Hyper、WezTermを認識します。
 
-- macOS 13 or later
-- Accessibility permission for PitaMado
-- Swift compiler (or Xcode) to build from source
+## 必要環境
 
-## Build and run
+- macOS 13以降
+- PitaMadoへのアクセシビリティ権限
+- ソースからビルドする場合はSwiftコンパイラまたはXcode
+
+## ビルドと起動
 
 ```sh
 git clone https://github.com/ohta-keiichi/PitaMado.git
@@ -39,29 +41,29 @@ cd PitaMado
 open build/PitaMado.app
 ```
 
-`build-local.sh` signs with a local certificate named `PitaMado Local Code Signing` when it is available. Otherwise, it uses ad-hoc signing. Reusing one local signing certificate helps macOS retain the Accessibility permission across rebuilds.
+`build-local.sh` は、`PitaMado Local Code Signing` というローカル証明書があればそれで署名します。なければad-hoc署名を使います。同じローカル証明書を使い続けると、再ビルド後もmacOSのアクセシビリティ権限を維持しやすくなります。
 
-To build in Xcode, open `PitaMado.xcodeproj` and run the `PitaMado` scheme.
+Xcodeからビルドする場合は、`PitaMado.xcodeproj` を開き、`PitaMado` スキームを実行してください。
 
-## Accessibility permission
+## アクセシビリティ権限
 
-PitaMado needs permission before it can reposition windows:
+ウインドウを配置する前に、PitaMadoへの権限を許可してください。
 
-`System Settings > Privacy & Security > Accessibility > PitaMado`
+`システム設定 > プライバシーとセキュリティ > アクセシビリティ > PitaMado`
 
-If the permission was granted before changing signing identities, quit and reopen the app after granting it again.
+署名IDを変更した場合は、権限を付け直したあとにアプリを終了・再起動してください。
 
-## Privacy
+## プライバシー
 
-PitaMado operates locally through macOS Accessibility APIs. It does not include analytics, networking, or a server component.
+PitaMadoはmacOSのアクセシビリティAPIを通じてローカルで動作します。分析、ネットワーク通信、サーバー機能は含みません。
 
-## Project structure
+## プロジェクト構成
 
-- `PitaMado/` — Swift source and app resources
-- `PitaMado.xcodeproj/` — Xcode project
-- `build-local.sh` — reproducible local build and signing script
-- `アプリ概要.md` — Japanese product notes
+- `PitaMado/` — Swiftソースとアプリのリソース
+- `PitaMado.xcodeproj/` — Xcodeプロジェクト
+- `build-local.sh` — 再現可能なローカルビルド・署名スクリプト
+- `アプリ概要.md` — 日本語のプロダクト説明
 
-## License
+## ライセンス
 
-Released under the [MIT License](LICENSE).
+[MIT License](LICENSE)で公開しています。
